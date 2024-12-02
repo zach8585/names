@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+</head>
+
+<body>
+    <header>
+        <h1>Registration</h1>
+        <p>Computers</p>
+    </header>
+
+    <main>
+        <h2>Registration Form</h2>
+
+        <label for="firstName">First Name:</label><br />
+        <input type="text" id="firstName" /><br />
+
+        <label for="lastName">Last Name:</label><br />
+        <input type="text" id="lastName" /><br />
+
+        <label for="Id">ID:</label><br />
+        <input type="text" id="Id" /><br />
+        
+        <hr />
+        <!-- Button with onclick event to trigger form validation -->
+        <button onclick="checkForm()">Submit</button>
+    </main>
+
+    <script>
+        // Function to validate the form inputs
+        function checkForm() {
+            // Get the values entered by the user
+            var firstName = document.getElementById("firstName").value;
+            var lastName = document.getElementById("lastName").value;
+            var Id = document.getElementById("Id").value;
+
+            // Check if first name length is greater than 20 characters
+            if (firstName.length > 20) {
+                alert("First name is too long, please enter fewer characters (max 20).");
+                return; // Exit the function if the validation fails
+            }
+
+            // Check if last name length is greater than 20 characters
+            if (lastName.length > 20) {
+                alert("Last name is too long, please enter fewer characters (max 20).");
+                return;
+            }
+
+            // Check if the ID is a valid 5 digit number
+            if (isNaN(Id) || Id.length !== 5) {
+                alert("ID must be a 5-digit number.");
+                return;
+            }
+
+            // If all validations pass, show a success message
+            alert("Registration successful!");
+        }
+    </script>
+</body>
+</html>
